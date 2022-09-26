@@ -12,3 +12,44 @@ var cursos = [
         "carga" :   "1200"
     }
 ];
+
+
+    const getCurso = function(){
+        
+        
+        let lista = []
+        let json = {}
+        let erro = true
+
+        cursos.forEach(item=>{
+            lista.push(
+                {
+                    nome: item.nome,
+                    sigla: item.sigla,
+                    foto: item.icone,
+                    carga: item.carga
+                }
+            )
+            erro = false
+        })
+        if (erro) {
+            return false
+        }else {
+            return lista
+        }
+    }
+
+
+    const getNomeCurso = () => {
+        let nomes = []
+    
+        cursos.forEach(item =>{
+            nomes.push({
+                nomeCurso : item.nome
+            })
+        })
+    }
+
+    module.exports = {
+        getCurso, getNomeCurso
+    }
