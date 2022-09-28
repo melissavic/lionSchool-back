@@ -1,2 +1,0 @@
-# lionschool-back
-# lions-school
