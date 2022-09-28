@@ -34,8 +34,7 @@ app.use((request, response, next) => {
 })
     // Endpoint que lista os cursos
     app.get('/cursos/', cors(), async function (request, response, next) {
-
-       
+      
         let cursos = getCurso()
 
         if (cursos) {
@@ -48,10 +47,9 @@ app.use((request, response, next) => {
     })
 
     //Endpoint listagem dos alunos de sistema
-
     app.get('/sistema/:alunos', cors(), async function (request, response, next) {
 
-        let sistema = getNames
+        let sistema = getNames()
 
         if (sistema) {
             response.status(200)
@@ -60,7 +58,7 @@ app.use((request, response, next) => {
             response.status(404)
         }
 
-    })
+    }) 
 
     //Endpoint listagem dos alunos de acordo com seu curso
     app.get('/alunos/:curso', cors(), async function (request, response, next) {
@@ -77,7 +75,7 @@ app.use((request, response, next) => {
     })
 
     //Endpoint listagem de acordo com a matricula
-    app.get('status/matricula:', cors(), async function (response, request, next) {
+    app.get('/status/:matricula', cors(), async function (request,response, next) {
 
         let chave = request.params.matricula
         let status = getStatus(chave)
@@ -92,7 +90,7 @@ app.use((request, response, next) => {
 
 
     //Endpoint listagem de acordo com a situacao do curso
-    app.get('statos/estado:', cors(), async function (response, request, next) {
+    app.get('/statos/:estado', cors(), async function (request,response, next) {
 
         let chave = request.params.estado
         let statos = getStatusEst(chave)
@@ -107,7 +105,8 @@ app.use((request, response, next) => {
 
 
     //Endpoint listagem das disciplinas
-    app.get('alunos/disciplina/matricula/:matricula', cors(), async function(response,request,next){
+    app.get('/alunos/disciplina/matricula/:matricula', cors(), async function(request,response,next){
+        
         let chave = request.params.matricula
         let matricula = getDisciplina(chave)
         
